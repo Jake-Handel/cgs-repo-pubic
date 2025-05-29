@@ -1,0 +1,437 @@
+// These are only for demonstration purposes, some are real opportunities but most aren't
+/* 
+When adding an opportunity please add it to the opportunities.js file in the data folder and in the correct format below.
+
+Type of Opportunity:
+id: number
+title: string
+image: string (include extension (.png), it is the exact same name as the image in the public folder)
+type: string
+audience: string
+cost: string
+date: string
+location: string
+application: string
+applicationLink: string
+categories: string[] (SEE BELOW FOR ADDING CATEGORIES)
+*/
+
+// Category mapping
+// WHEN MAKING A CATEGORY USE THE SYNTAX OF `CATEGORY[#]`
+const CATEGORIES = {
+  "1": "Humanities & Politics & Int. Relations",
+  "2": "Speech & Debate & Model UN",
+  "3": "STEM",
+  "4": "Leadership/Volunteering",
+  "5": "Business & Economics & Entrepreneurship",
+  "6": "Law",
+  "7": "Creative Expression & Team Oriented Activities",
+  "8": "Summer Schools/Internships",
+  "9": "Impressive/Highly Commended"
+};
+
+export default [
+    {
+      id: 1,
+      title: "NSW Mock Trial",
+      image: '',
+      type: "Competition (Hybrid)",
+      audience: "Grade 10-11",
+      cost: "Free",
+      date: "March - December (Varies)",
+      location: "NSW & ACT",
+      application: "Apply within the school (Term 1)",
+      applicationLink: "https://www.lawsociety.com.au/Legal-Communities/High-School-Students/Mock-Trial-Competition",
+      categories: [CATEGORIES[1], CATEGORIES[7]]
+    },
+    {
+      id: 2,
+      title: "Ayn Rand Institute Writing Competition",
+      image: '',
+      type: "Competition (Online)",
+      audience: "Grade 8-12",
+      cost: "Free",
+      date: "Submit by July 19th",
+      location: "Online",
+      application: "Student Registration",
+      applicationLink: "https://aynrand.org/students/essay-contests/",
+      categories: [CATEGORIES[7], CATEGORIES[1]]
+    },
+    {
+      id: 3,
+      title: "OzCLO Linguistics Competition",
+      image: '',
+      type: "Competition (In-person)",
+      audience: "Grade 7-12",
+      cost: "$10",
+      date: "March - July",
+      location: "Australia",
+      application: "School Registration",
+      applicationLink: "https://ozclo.org.au/",
+      categories: [CATEGORIES[7]]
+    },
+    {
+      id: 4,
+      title: "Australian Maths Competition",
+      image: 'australia-maths-challenge.png',
+      type: "Competition (Hybrid)",
+      audience: "Grade 3-12",
+      cost: "$9",
+      date: "5th - 7th August",
+      location: "Australia",
+      application: "School Registration",
+      applicationLink: "https://www.amt.edu.au/amc",
+      categories: [CATEGORIES[3]]
+    },
+    {
+      id: 5,
+      title: "SciX@UNSW Program",
+      image: "UNSW-nat-sci.png",
+      type: "Summer School (In-person)",
+      audience: "Grade 11-12",
+      cost: "$695",
+      date: "January, Apply by October",
+      location: "UNSW Sydney Randwick Campus",
+      application: "Student Registration",
+      applicationLink: "https://www.unsw.edu.au/science/study-with-us/scix-school-extension-program",
+      categories: [CATEGORIES[3]]
+    },
+    {
+      id: 6,
+      title: "National Youth Science Forum (NYSF)",
+      image: "NYSF.png",
+      type: "Summer School (In-person)",
+      audience: "Grade 11-12",
+      cost: "$3065",
+      date: "January, Apply by June",
+      location: "ANU and University of Queensland",
+      application: "Student Registration",
+      applicationLink: "https://www.nysf.edu.au/programs/year-12-program/",
+      categories: [CATEGORIES[3]]
+    },
+    {
+      id: 7,
+      title: "Australian Training Tournament",
+      image: '',
+      type: "Competition (In-person)",
+      audience: "Grade 7-12",
+      cost: "Varies",
+      date: "Varies",
+      location: "Varies",
+      application: "Invitational",
+      applicationLink: "https://www.amt.edu.au/olympiad-programs",
+      categories: [CATEGORIES[3]]
+    },
+    {
+      id: 8,
+      title: "School Debating (ACTDU)",
+      image: "school-debating-actdu.png",
+      type: "Competition (In-person)",
+      audience: "Grade 7-12",
+      cost: "Refer to School",
+      date: "School Terms",
+      location: "Australia",
+      application: "School Application",
+      applicationLink: "http://www.actdebatingunion.com/",
+      categories: [CATEGORIES[2]]
+    },
+    {
+      id: 9,
+      title: "National Schools Debating Championships (NSDC)",
+      image: "debating-nsdc-trials.png",
+      type: "Competition (In-person)",
+      audience: "Grade 9-12",
+      cost: "$700-$900",
+      date: "Trials typically held in February - March",
+      location: "Varies (Host states change)",
+      application: "Student Registration (Invitational)",
+      applicationLink: "http://www.actdebatingunion.com",
+      categories: [CATEGORIES[2]]
+    },
+    {
+      id: 10,
+      title: "International Competition for Young Debaters (Cambridge Union)",
+      image: "cambridge-debating-union.png",
+      type: "Competition (Hybrid)",
+      audience: "Grade 10 Below",
+      cost: "$220",
+      date: "January",
+      location: "Australia & Cambridge UK",
+      application: "Student Registration (Through Speakers' Corner)",
+      applicationLink: "https://www.speakerscornerau.com/competitions",
+      categories: [CATEGORIES[2]]
+    },
+    {
+      id: 11,
+      title: "Harvard World Schools",
+      image: "harvard-debating-union.png",
+      type: "Competition (Hybrid)",
+      audience: "Grade 9-11",
+      cost: "$250",
+      date: "April",
+      location: "Australia & Harvard US",
+      application: "Student Registration (Through Speakers' Corner)",
+      applicationLink: "https://www.speakerscornerau.com/competitions",
+      categories: [CATEGORIES[2]]
+    },
+    {
+      id: 12,
+      title: "Oxford Schools ANZ",
+      image: "oxford-debating-union.png",
+      type: "Competition (Hybrid)",
+      audience: "Grade 8-11",
+      cost: "$220",
+      date: "July",
+      location: "Australia & Oxford UK",
+      application: "Student Registration (Through Speakers' Corner)",
+      applicationLink: "https://www.speakerscornerau.com/competitions",
+      categories: [CATEGORIES[2]]
+    },
+    {
+      id: 13,
+      title: "Plain English Speaking Award",
+      image: "plain-english-speaking-award.png",
+      type: "Speaking Competition (Hybrid)",
+      audience: "Age 15+",
+      cost: "$30-$60",
+      date: "Depends on Organiser",
+      location: "State Rounds, then Nationals",
+      application: "School Registration",
+      applicationLink: "https://artsunit.nsw.edu.au/program/plain-english-speaking-award",
+      categories: [CATEGORIES[2]]
+    },
+    {
+      id: 14,
+      title: "UN Youth Conference",
+      image: "UN-youth-conference.png",
+      type: "Conference (In-Person)",
+      audience: "Grade 9-12",
+      cost: "$130",
+      date: "May",
+      location: "State Rounds, then Nationals",
+      application: "Student Registration",
+      applicationLink: "https://unyouth.org.au/program/state-territory-conference/",
+      categories: [CATEGORIES[2]]
+    },
+    {
+      id: 15,
+      title: "UN Youth Evatt Competition",
+      image: "UN-youth-evatt-comp.png",
+      type: "Competition (In-Person)",
+      audience: "Grade 9-12",
+      cost: "Varies",
+      date: "August - September",
+      location: "State Rounds, then Nationals",
+      application: "Student Registration",
+      applicationLink: "https://unyouth.org.au/program/evatt-competition/",
+      categories: [CATEGORIES[2]]
+    },
+    {
+      id: 16,
+      title: "UN Youth Voice Competition",
+      image: "UN-youth-voice-comp.png",
+      type: "Speaking Competition",
+      audience: "Grade 7-10",
+      cost: "Refer to Website (Changes for State and National Levels)",
+      date: "February",
+      location: "State, then National Rounds",
+      application: "Online Registration (Emailing list available)",
+      applicationLink: "https://unyouth.org.au/program/the-voice-competition/",
+      categories: [CATEGORIES[2], "Debate & Public Speaking"]
+    },
+    {
+      id: 17,
+      title: "Global Peace Summit",
+      image: "Global-peace-summit.png",
+      type: "Conference (In-Person)",
+      audience: "17–30 years old",
+      cost: "$1,170 AUD",
+      date: "January, 4 Days",
+      location: "Bangkok, Thailand",
+      application: "Online Registration",
+      applicationLink: "https://www.humanitarianaffairs.asia/GlobalPeaceSummit/Overview/",
+      categories: [CATEGORIES[1]]
+    },
+    {
+      id: 18,
+      title: "John Locke Essay Competition",
+      image: "john-locke-essay-comp.png",
+      type: "Writing (Essay)",
+      audience: "Anyone (Including Junior Section)",
+      cost: "Free Entry",
+      date: "Refer to Website",
+      location: "Anywhere (Online)",
+      application: "Online Registration",
+      applicationLink: "https://www.johnlockeinstitute.com/essay-competition",
+      categories: [CATEGORIES[2], "Opportunity Spotlight"]
+    },
+    {
+      id: 19,
+      title: "UNICEF Young Ambassadors",
+      image: "UNICEF-young-ambassadors.png",
+      type: "Ambassador (In-Person)",
+      audience: "17 - 25 yrs old",
+      cost: "None",
+      date: "Long-Term (1 Year)",
+      location: "Australia",
+      application: "UNICEF Australia Website",
+      applicationLink: "",
+      categories: [CATEGORIES[1]]
+    },
+    {
+      id: 20,
+      title: "Constitutional Convention",
+      image: "consitutional-convention.png",
+      type: "Conference (In-Person)",
+      audience: "Grade 11 (In ACT)",
+      cost: "None",
+      date: "August, 9am-3pm",
+      location: "ACT Legislative Assembly",
+      application: "Teacher Registration",
+      applicationLink: "https://www.parliament.act.gov.au/visit-and-learn/learn/schools/secondary/constitutional-convention",
+      categories: [CATEGORIES[1]]
+    },
+    {
+      id: 21,
+      title: "Committee Challenge",
+      image: "committee-challenge.png",
+      type: "Conference (In-Person)",
+      audience: "Grade 7-12",
+      cost: "None",
+      date: "Various Dates, 9am-3pm",
+      location: "ACT Legislative Assembly",
+      application: "Teacher Registration",
+      applicationLink: "https://www.parliament.act.gov.au/visit-and-learn/learn/schools/secondary/committee-challenge",
+      categories: [CATEGORIES[1]]
+    },
+    {
+      id: 22,
+      title: "Writing Speech to MPs",
+      image: "writing-speech-to-mp.png",
+      type: "Writing/Activism (Online)",
+      audience: "Anyone",
+      cost: "None",
+      date: "Try Election times",
+      location: "Australia",
+      application: "To any MP",
+      applicationLink: "",
+      categories: [CATEGORIES[1]]
+    },
+    {
+      id: 23,
+      title: "Ethics Olympiad",
+      image: "ethics-olympiad.png",
+      type: "Team Competition (Online)",
+      audience: "Grade 7-12",
+      cost: "None",
+      date: "August, 9am-3pm",
+      location: "Online",
+      application: "Teacher Registration",
+      applicationLink: "https://ethicsolympiad.org/?page_id=4467",
+      categories: [CATEGORIES[2], "Debate & Public Speaking"]
+    },
+    {
+      id: 24,
+      title: "Philosothon",
+      image: "philosothon.png",
+      type: "Team Competition (In-Person)",
+      audience: "Grade 7-12",
+      cost: "None",
+      date: "End of August",
+      location: "Refer to Website",
+      application: "Teacher Registration",
+      applicationLink: "https://www.philosothon.org/site/",
+      categories: [CATEGORIES[2], "Debate & Public Speaking"]
+    },
+    {
+      id: 25,
+      title: "International Chemistry Quiz (ICQ)",
+      image: "international-chem-quiz.png",
+      type: "Competition (Online)",
+      audience: "Grade 7-12",
+      cost: "Refer to Website (Changes for State and National Levels)",
+      date: "Early August (Same as ASO)",
+      location: "Online/At School",
+      application: "Online Registration",
+      applicationLink: "https://www.raci.org.au/education-outreach/school-competitions/icq",
+      categories: [CATEGORIES[3]]
+    },
+    {
+      id: 26,
+      title: "Australian Science Olympiads (ASO)",
+      image: 'ASO.png',
+      type: "Olympiad Competition (Online)",
+      audience: "Grade 7-12",
+      cost: "Refer to Website (Changes for State and National Levels)",
+      date: "Early August",
+      location: "State, then National Rounds",
+      application: "Online Registration",
+      applicationLink: "https://www.asi.edu.au/program/australian-science-olympiads/",
+      categories: [CATEGORIES[3]]
+    },
+    {
+      id: 27,
+      title: "Australian Science Summer School",
+      image: 'aus-science-summer-school.png',
+      type: "Summer School (In-person)",
+      audience: "15+ Age",
+      cost: "$3000 (Depends)",
+      date: "Summer Holidays (Jan)",
+      location: "Refer to Website",
+      application: "Invite Only (From ASO)",
+      applicationLink: "https://www.asi.edu.au/program/australian-science-olympiads/#asosummerschool",
+      categories: [CATEGORIES[3], "Opportunity Spotlight"]
+    },
+    {
+     id: 28,
+    title: "Wharton Global High School Investment Competition",
+    image: 'wharton-investment-competition.png',
+    type: "Competition (Online)",
+    audience: "Grade 8-12",
+    cost: "Free",
+    date: "September to May (August Registration)",
+    location: "Online, finalists in Uni Pennsylvania",
+    application: "Online Registration",
+    applicationLink: "https://globalyouth.wharton.upenn.edu/investment-competition/",
+    categories: [CATEGORIES[5]]
+    },
+    {
+      id: 29,
+      title: "Harvard Crimson Case Competition",
+      image: '',
+      type: "Competition (Online)",
+      audience: "Grade 7-12",
+      cost: "$20",
+      date: "October",
+      location: "Online",
+      application: "Online Registration",
+      applicationLink: "https://www.casecomp.org/",
+      categories: [CATEGORIES[5]]
+    },
+    {
+      id: 30,
+      title: "Big Science Competition",
+      image: '',
+      type: "Competition (Online)",
+      audience: "Grade 7-10",
+      cost: "$10",
+      date: "May",
+      location: "Online",
+      application: "Teacher Registration",
+      applicationLink: "https://www.asi.edu.au/program/big-science-competition/",
+      categories: [CATEGORIES[3]]
+    },
+    {
+      id: 31,
+      title: "Australian Intermediate Mathematics Olympiad (AIMO)",
+      image: 'australian-intermediate-maths-olympiad.png',
+      type: "Competition (Online)",
+      audience: "Grade 7-10",
+      cost: "$25",
+      date: "September",
+      location: "Online",
+      application: "Teacher Registration",
+      applicationLink: "https://www.amt.edu.au/aimo",
+      categories: [CATEGORIES[3]]
+    }
+  ];
