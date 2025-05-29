@@ -4,6 +4,19 @@ A full-stack web application built with Vue.js + Tailwind CSS (Frontend)
 
 ## Project Setup
 
+1. 
+   ```
+   cd Desktop # Or where you want to save it to
+   ```
+3.  
+   ```
+   git clone https://github.com/Jake-Handel/cgs-repo-pubic.git
+   ```
+3. 
+   ```
+    cd cgs-repo-public
+   ```
+
 ### Frontend Setup
 1. Navigate to the frontend directory:
 ```bash
