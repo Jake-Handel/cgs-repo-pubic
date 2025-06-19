@@ -21,5 +21,8 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 // Use router
 app.use(router)
 
+app.use(injectAnalytics)
+app.use(injectSpeedInsights)
+
 // Mount the app
 app.mount('#app')
