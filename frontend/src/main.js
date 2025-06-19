@@ -5,12 +5,6 @@ import App from './App.vue'
 import router from './router'
 import './assets/main.css'
 
-// Initialize Vercel Analytics and Speed Insights
-if (process.env.NODE_ENV === 'production') {
-  injectAnalytics();
-  injectSpeedInsights();
-}
-
 // Import Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
