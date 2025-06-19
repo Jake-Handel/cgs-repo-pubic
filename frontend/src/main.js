@@ -1,11 +1,15 @@
 import { createApp } from 'vue'
-import { inject } from '@vercel/analytics';
-import { SpeedInsights } from "@vercel/speed-insights/vue"
-
+import { inject as injectAnalytics } from '@vercel/analytics';
+import { inject as injectSpeedInsights } from '@vercel/speed-insights';
 import App from './App.vue'
 import router from './router'
 import './assets/main.css'
-import VercelAnalytics from './plugins/vercel-analytics'  // Add Vercel Analytics plugin
+
+// Initialize Vercel Analytics and Speed Insights
+if (process.env.NODE_ENV === 'production') {
+  injectAnalytics();
+  injectSpeedInsights();
+}
 
 // Import Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -22,9 +26,6 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 // Use router
 app.use(router)
-
-// Use Vercel Analytics
-app.use(VercelAnalytics)
 
 // Mount the app
 app.mount('#app')
