@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import './assets/main.css'
+import VercelAnalytics from './plugins/vercel-analytics'  // Add Vercel Analytics plugin
 
 // Import Font Awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -18,6 +19,9 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 // Use router
 app.use(router)
+
+// Use Vercel Analytics
+app.use(VercelAnalytics)
 
 // Mount the app
 app.mount('#app')
