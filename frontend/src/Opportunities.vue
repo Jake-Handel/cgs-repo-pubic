@@ -3,14 +3,7 @@
     <header class="bg-white shadow-sm">
       <div class="container mx-auto px-4 py-3">
         <div class="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <router-link 
-              to="/" 
-              class="text-xl font-semibold text-teal-800 hover:text-teal-600 transition-colors duration-300"
-            >
-              Student Opportunities
-            </router-link>
-          </div>
+          <router-link to="/" class="text-xl font-semibold text-teal-800 hover:text-teal-600 transition-colors duration-300 whitespace-nowrap">Student Opportunities</router-link>
 
           <div class="w-full flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-end">
             <div class="relative">
