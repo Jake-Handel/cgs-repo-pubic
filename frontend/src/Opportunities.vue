@@ -30,23 +30,64 @@
                 <option value="Law" class="text-teal-800">Law</option>
                 <option value="Creative Expression & Team Oriented Activities" class="text-teal-800">Creative Expression & Team Oriented Activities</option>
                 <option value="Summer Schools/Internships" class="text-teal-800">Summer Schools/Internships</option>
-                <option value="Impressive/Highly Commended" class="text-teal-800">Impressive/Highly Commended</option>
+                <option value="Impressive Commended" class="text-teal-800">Impressive Commended</option>
               </select>
             </div>
 
-            <div class="relative">
-              <input
-                type="text"
-                v-model="searchQuery"
-                placeholder="Search opportunities..."
-                class="border rounded-lg py-2 px-3 text-gray-700 w-full
-                         hover:border-teal-500 focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50
-                         transition-all duration-200"
-              />
-              <div class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
+            <div class="relative flex items-center space-x-2">
+              <div class="relative flex-1">
+                <input
+                  type="text"
+                  v-model="searchQuery"
+                  placeholder="Search opportunities..."
+                  class="border rounded-lg py-2 px-3 text-gray-700 w-full
+                           hover:border-teal-500 focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50
+                           transition-all duration-200"
+                />
+                <div class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+              </div>
+              
+              <!-- Sort Dropdown -->
+              <div class="relative">
+                <button 
+                  @click="showSortDropdown = !showSortDropdown"
+                  class="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 transition-all duration-200"
+                  :class="{ 'bg-gray-100': showSortDropdown }"
+                  aria-haspopup="true"
+                  :aria-expanded="showSortDropdown"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                  </svg>
+                </button>
+                
+                <!-- Dropdown menu -->
+                <div 
+                  v-show="showSortDropdown" 
+                  @click="showSortDropdown = false"
+                  class="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
+                >
+                  <div class="py-1" role="menu" aria-orientation="vertical">
+                    <p class="px-4 py-2 text-sm text-gray-700 font-medium border-b border-gray-100">Sort by</p>
+                    <button 
+                      v-for="option in sortOptions" 
+                      :key="option.value"
+                      @click="selectSortOption(option.value)"
+                      class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center justify-between"
+                      :class="{ 'bg-blue-50 text-teal-700': sortBy === option.value }"
+                      role="menuitem"
+                    >
+                      <span>{{ option.label }}</span>
+                      <svg v-if="sortBy === option.value" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-teal-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -200,7 +241,7 @@
               A platform connecting students with opportunities for academic, personal, and professional growth.
             </p>
             <p>
-              Developed by Jake Handel &copy; 2025
+              Developed by Jake Handel and Sidney Zhang &copy; 2025
             </p>
           </div>
         </div>
@@ -210,7 +251,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import opportunitiesData from './data/opportunities.js';
 
 const categoryDisplayNames = {
@@ -222,7 +263,7 @@ const categoryDisplayNames = {
   "Law": 'Law',
   "Creative Expression & Team Oriented Activities": 'Creative Expression & Team Oriented Activities',
   "Summer Schools/Internships": 'Summer Schools/Internships',
-  "Impressive/Highly Commended": 'Impressive/Highly Commended'
+  "Impressive Commended": 'Impressive Commended'
 };
 
 export default {
@@ -232,6 +273,13 @@ export default {
     const selectedCategory = ref('');
     const searchQuery = ref('');
     const showFooter = ref(false);
+    const showSortDropdown = ref(false);
+    const sortBy = ref('alphabetical');
+    
+    const sortOptions = [
+      { value: 'alphabetical', label: 'Alphabetical (A-Z)' },
+      { value: 'date', label: 'Date (Earliest first)' },
+    ];
 
     const currentCategory = computed(() => {
       if (!selectedCategory.value) return 'All opportunities';
@@ -241,8 +289,22 @@ export default {
     const filteredOpportunities = computed(() => {
       let filtered = [...opportunities.value];
       
-      // Sort opportunities alphabetically by title
-      filtered.sort((a, b) => a.title.localeCompare(b.title));
+      // Apply sorting based on selected option
+      switch(sortBy.value) {
+        case 'alphabetical':
+          filtered.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case 'date':
+          filtered.sort((a, b) => {
+            // Extract dates and compare
+            const dateA = extractDate(a.datenum);
+            const dateB = extractDate(b.datenum);
+            return dateA - dateB; // Earliest first
+          });
+          break;
+        default:
+          filtered.sort((a, b) => a.title.localeCompare(b.title));
+      }
       
       // Filter by category
       if (selectedCategory.value) {
@@ -300,12 +362,43 @@ export default {
 
     const openMail = () => {
       window.open('mailto:sidney.zhang@cgs.act.edu.au');
-    }
+    };
+    
+    const selectSortOption = (option) => {
+      sortBy.value = option;
+      showSortDropdown.value = false;
+    };
+    
+    const extractDate = (dateString) => {
+      if (!dateString) return new Date('9999-12-31'); // Put items without date at the end
+      
+      // Try to parse various date formats
+      const date = new Date(dateString);
+      if (!isNaN(date.getTime())) return date;
+      
+      // Fallback for other date formats or return a very future date if can't parse
+      return new Date('9999-12-31');
+    };
 
     onMounted(() => {
       opportunities.value = opportunitiesData;
       window.addEventListener('scroll', handleScroll);
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', handleClickOutside);
     });
+    
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('click', handleClickOutside);
+    });
+    
+    const handleClickOutside = (event) => {
+      const sortButton = event.target.closest('.relative > button');
+      if (!sortButton) {
+        showSortDropdown.value = false;
+      }
+    };
 
     return {
       opportunities,
@@ -315,7 +408,11 @@ export default {
       currentCategory,
       filteredOpportunities,
       cardColorClass,
-      openMail
+      openMail,
+      showSortDropdown,
+      sortBy,
+      sortOptions,
+      selectSortOption
     };
   }
 };
