@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-50">
     <header class="bg-white shadow-sm">
       <div class="container mx-auto px-4 py-3">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between">
           <div>
             <router-link 
               to="/" 
@@ -12,11 +12,11 @@
             </router-link>
           </div>
 
-          <div class="flex items-center justify-end space-x-4">
+          <div class="w-full flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-end">
             <div class="relative">
               <select
                 v-model="selectedCategory"
-                class="border rounded-lg py-2 px-4 text-gray-700 w-48
+                class="border rounded-lg py-2 px-4 text-gray-700 w-full sm:w-48
                      hover:border-teal-500 focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50
                      transition-all duration-200 cursor-pointer
                      bg-white shadow-sm"
@@ -39,11 +39,11 @@
                 type="text"
                 v-model="searchQuery"
                 placeholder="Search opportunities..."
-                class="border rounded-lg py-1 px-3 text-gray-700 w-64
+                class="border rounded-lg py-2 px-3 text-gray-700 w-full
                          hover:border-teal-500 focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50
                          transition-all duration-200"
               />
-              <div class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <div class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>

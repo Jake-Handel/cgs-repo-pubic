@@ -55,12 +55,12 @@
             </div>
           </div>
 
-          <div class="flex justify-end">
+          <div class="hidden md:flex justify-end">
             <div class="w-full max-w-md h-auto">
               <img 
                 src="./assets/images/Book.png" 
                 alt="Book illustration" 
-                class="w-full h-auto object-contain"
+                class="w-full h-auto object-contain md:max-w-md"
               />
             </div>
           </div>
