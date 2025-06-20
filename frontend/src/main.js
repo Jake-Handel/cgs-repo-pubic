@@ -1,10 +1,6 @@
 import { createApp } from 'vue'
 import { inject as injectAnalytics } from '@vercel/analytics';
 import { inject as injectSpeedInsights } from '@vercel/speed-insights';
-
-// Initialize Vercel Analytics and Speed Insights
-injectAnalytics();
-injectSpeedInsights();
 import App from './App.vue'
 import router from './router'
 import './assets/main.css'
@@ -24,6 +20,9 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 // Use router
 app.use(router)
+
+app.use(injectAnalytics)
+app.use(injectSpeedInsights)
 
 // Mount the app
 app.mount('#app')
