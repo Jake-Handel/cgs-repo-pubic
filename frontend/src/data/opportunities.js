@@ -35,7 +35,7 @@ export default [
     {
       id: 1,
       title: "NSW Mock Trial",
-      image: '',
+      image: "nsw-mock-trial",
       type: "Competition (Hybrid)",
       audience: "Grade 10-11",
       cost: "Free",
