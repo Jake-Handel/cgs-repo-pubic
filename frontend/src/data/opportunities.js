@@ -53,7 +53,7 @@ export default [
       type: "Competition (Online)",
       audience: "Grade 8-12",
       cost: "Free",
-      date: "Submit by July 19th",
+      date: "July",
       datenum: 7,
       location: "Online",
       application: "Student Registration",
@@ -346,13 +346,13 @@ export default [
       image: "ethics-olympiad.png",
       type: "Team Competition (Online)",
       audience: "Grade 7-12",
-      datenum: 8,
+      datenum: 5,
       cost: "None",
-      date: "August, 9am-3pm",
+      date: "May, 9am-3pm",
       location: "Online",
       application: "Teacher Registration",
       applicationLink: "https://ethicsolympiad.org/?page_id=4467",
-      categories: [CATEGORIES[2], "Debate & Public Speaking"]
+      categories: [CATEGORIES[2]]
     },
     {
       id: 24,
