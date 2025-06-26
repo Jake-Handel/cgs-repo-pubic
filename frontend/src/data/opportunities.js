@@ -63,7 +63,7 @@ export default [
     {
       id: 3,
       title: "OzCLO Linguistics Competition",
-      image: '',
+      image: "ozclo.png",
       type: "Competition (In-person)",
       audience: "Grade 7-12",
       cost: "$10",
