@@ -49,7 +49,7 @@ export default [
     {
       id: 2,
       title: "Ayn Rand Institute Writing Competition",
-      image: '',
+      image: "ayn-rand.png",
       type: "Competition (Online)",
       audience: "Grade 8-12",
       cost: "Free",
