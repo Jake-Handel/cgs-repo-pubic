@@ -441,7 +441,7 @@ export default [
     {
       id: 30,
       title: "Big Science Competition",
-      image: '',
+      image: "big-science-comp",
       type: "Competition (Online)",
       audience: "Grade 7-10",
       cost: "$10",
