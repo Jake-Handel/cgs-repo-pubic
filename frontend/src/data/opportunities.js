@@ -44,7 +44,7 @@ export default [
       location: "NSW & ACT",
       application: "Apply within the school (Term 1)",
       applicationLink: "https://www.lawsociety.com.au/Legal-Communities/High-School-Students/Mock-Trial-Competition",
-      categories: [CATEGORIES[1], CATEGORIES[7], CATEGORIES[6]]
+      categories: [CATEGORIES[7], CATEGORIES[6]]
     },
     {
       id: 2,
