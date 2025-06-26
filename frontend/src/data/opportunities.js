@@ -35,7 +35,7 @@ export default [
     {
       id: 1,
       title: "NSW Mock Trial",
-      image: "nsw-mock-trial",
+      image: "nsw-mock-trial.png",
       type: "Competition (Hybrid)",
       audience: "Grade 10-11",
       cost: "Free",
@@ -427,7 +427,7 @@ export default [
     {
       id: 29,
       title: "Harvard Crimson Case Competition",
-      image: "harvard-case-comp",
+      image: "harvard-case-comp.png",
       type: "Competition (Online)",
       audience: "Grade 7-12",
       cost: "$20",
@@ -441,7 +441,7 @@ export default [
     {
       id: 30,
       title: "Big Science Competition",
-      image: "big-science-comp",
+      image: "big-science-comp.png",
       type: "Competition (Online)",
       audience: "Grade 7-10",
       cost: "$10",
