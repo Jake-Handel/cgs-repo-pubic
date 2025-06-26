@@ -427,7 +427,7 @@ export default [
     {
       id: 29,
       title: "Harvard Crimson Case Competition",
-      image: '',
+      image: "harvard-case-comp",
       type: "Competition (Online)",
       audience: "Grade 7-12",
       cost: "$20",
