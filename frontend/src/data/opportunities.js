@@ -465,5 +465,19 @@ export default [
       application: "Teacher Registration",
       applicationLink: "https://www.amt.edu.au/aimo",
       categories: [CATEGORIES[3]]
+    },
+    {
+      id: 32,
+      title: "Bond University Mooting Competition",
+      image: "mooting-comp.png",
+      type: "Competition (In-person)",
+      audience: "Grade 10-12",
+      cost: "Free",
+      datenum: 5,
+      date: "May",
+      location: "Online & Gold Coast",
+      application: "Teacher Registration",
+      applicationLink: "https://bond.edu.au/study/experience-bond-for-yourself/high-school-student-experiences/experience-a-study-area/national",
+      categories: [CATEGORIES[6]]
     }
   ];
