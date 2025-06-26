@@ -268,7 +268,7 @@ export default [
       location: "Bangkok, Thailand",
       application: "Online Registration",
       applicationLink: "https://www.humanitarianaffairs.asia/GlobalPeaceSummit/Overview/",
-      categories: [CATEGORIES[1]]
+      categories: [CATEGORIES[1], CATEGORIES[4]]
     },
     {
       id: 18,
