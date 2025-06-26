@@ -119,7 +119,7 @@ export default [
     {
       id: 7,
       title: "Australian Training Tournament",
-      image: '',
+      image: "ATT.png",
       type: "Competition (In-person)",
       audience: "Grade 7-12",
       cost: "Varies",
