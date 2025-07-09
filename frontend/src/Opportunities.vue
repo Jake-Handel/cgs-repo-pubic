@@ -116,7 +116,7 @@
       </div>
     </header>
 
-    <div class="container mx-auto px-4 py-4 mb-40">
+    <div class="container mx-auto px-4 py-4">
       <main class="container mx-auto px-4 py-6">
         <div class="mb-6 flex items-center justify-center">
           <h2 class="text-3xl font-bold">
@@ -227,9 +227,7 @@
 
     <!-- Footer -->
     <footer 
-      class="bg-gradient-to-br from-gray-900 to-gray-800 text-white pt-16 pb-8 relative overflow-hidden fixed bottom-0 w-full transition-transform duration-300"
-      :class="{ 'translate-y-full': !showFooter }"
-    >
+      class="bg-gradient-to-br from-gray-900 to-gray-800 text-white pt-6 pb-4 relative overflow-hidden fixed bottom-0 w-full transition-transform duration-300">
       <!-- Animated background elements -->
       <div class="absolute inset-0 -z-10">
         <div class="absolute -bottom-40 -right-40 w-80 h-80 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
@@ -237,7 +235,7 @@
       </div>
       
       <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <!-- Contact Us -->
           <div data-aos="fade-up" data-aos-delay="100">
             <div class="inline-flex items-center mb-6">
@@ -353,15 +351,6 @@ export default {
       sortBy.value = option;
       showSortDropdown.value = false;
     };
-    
-    const handleClickOutside = (event) => {
-      if (showCategoryDropdown.value && !event.target.closest('.category-dropdown-container')) {
-        showCategoryDropdown.value = false;
-      }
-      if (showSortDropdown.value && !event.target.closest('.sort-dropdown-container')) {
-        showSortDropdown.value = false;
-      }
-    };
 
     const currentCategory = computed(() => {
       if (!selectedCategory.value) return 'All opportunities';
@@ -445,18 +434,6 @@ export default {
       return colors[type] || 'bg-gray-100 text-gray-800';
     };
 
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const scrollPosition = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      if (documentHeight - windowHeight - scrollPosition < 100) {
-        showFooter.value = true;
-      } else {
-        showFooter.value = false;
-      }
-    };
-
     const openMail = () => {
       window.open('mailto:sidney.zhang@cgs.act.edu.au');
     };
@@ -474,13 +451,9 @@ export default {
 
     onMounted(() => {
       opportunities.value = opportunitiesData;
-      window.addEventListener('scroll', handleScroll);
-      document.addEventListener('click', handleClickOutside);
     });
     
     onUnmounted(() => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('click', handleClickOutside);
     });
     
     return {
@@ -506,9 +479,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.opportunity-card {
-  @apply bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300;
-}
-</style>
