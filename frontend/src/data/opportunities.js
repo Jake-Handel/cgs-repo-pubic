@@ -548,7 +548,7 @@ export default [
       location: "Canberra",
       application: "Online Registration",
       applicationLink: "https://www.unsw.edu.au/canberra/about-us/our-schools/engineering-technology/engage-with-us/young-women-engineering",
-      categories: [CATEGORIES[3]
+      categories: [CATEGORIES[3]]
     },
     {
       id: 38,
@@ -562,7 +562,7 @@ export default [
       location: "Australia",
       application: "Online Registration",
       applicationLink: "https://www.girlsprogramming.network/",
-      categories: [CATEGORIES[3]
+      categories: [CATEGORIES[3]]
     },
     {
       id: 39,
@@ -602,7 +602,7 @@ export default [
       datenum: 7,
       date: "July",
       location: "Yale University",
-      application: "Online Registration. Note: Similar Summer Schools offered by other Universities exist"
+      application: "Online Registration. Note: Similar Summer Schools offered by other Universities exist",
       applicationLink: "https://globalscholars.yale.edu/",
       categories: [CATEGORIES[8]]
     }
