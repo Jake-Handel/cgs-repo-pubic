@@ -45,7 +45,7 @@
               </h1>
               
               <p class="text-xl text-gray-600 max-w-lg leading-relaxed">
-                Discover a wide range of opportunities for academic, personal, and professional growth in one centralized platform.
+                Discover a wide range of opportunities for academic, personal, and professional growth in one centralised platform.
               </p>
 
               <!-- Action buttons -->
@@ -132,13 +132,6 @@
                   <span class="font-semibold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent">Ready for the World</span>.
                 </p>
               </div>
-              
-              <div class="pt-4">
-                <button class="group flex items-center text-teal-600 hover:text-teal-800 font-medium transition-colors duration-300">
-                  <span class="mr-2">Learn more about our mission</span>
-                  <span class="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -172,7 +165,7 @@
                 <div>
                   <h3 class="text-xl font-bold text-gray-900 mb-2">Browse Categories</h3>
                   <p class="text-gray-600">
-                    Explore our diverse range of categories including Academics, Sports, Arts, and more.
+                    Explore our diverse range of categories including Academics, Leadership, Work experience, and more.
                   </p>
                 </div>
               </div>
@@ -230,9 +223,9 @@
                   <h3 class="text-xl font-bold text-gray-900 mb-3">Beyond just 'Academics'</h3>
                   <div class="flex flex-wrap gap-2">
                     <span class="px-3 py-1 bg-teal-50 text-teal-700 text-sm font-medium rounded-full">Volunteering</span>
-                    <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">Sports</span>
-                    <span class="px-3 py-1 bg-purple-50 text-purple-700 text-sm font-medium rounded-full">Music</span>
-                    <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-full">Self-Development</span>
+                    <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">Leadership</span>
+                    <span class="px-3 py-1 bg-purple-50 text-purple-700 text-sm font-medium rounded-full">STEM</span>
+                    <span class="px-3 py-1 bg-amber-50 text-amber-700 text-sm font-medium rounded-full">Self-Improvement</span>
                   </div>
                 </div>
               </div>
