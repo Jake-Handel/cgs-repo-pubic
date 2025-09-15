@@ -434,7 +434,7 @@ export default {
     };
 
     const openMail = () => {
-      window.open('mailto:sidney.zhang@cgs.act.edu.au');
+      window.open('mailto:seniorschool@cgs.act.edu.au');
     };
     
     const extractDate = (dateString) => {

@@ -321,7 +321,7 @@ export default defineComponent({
   },
   methods: {
     openMail() {
-      window.open('mailto:sidney.zhang@cgs.act.edu.au');
+      window.open('mailto:seniorschool@cgs.act.edu.au');
     }
   }
 })
