@@ -1,7 +1,7 @@
 {
   "name": "cgs-oppotunities-for-students-frontend",
   "version": "1.0.0",
-  "private": true,  
+  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -15,6 +15,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "aos": "^2.3.4",
+    "axios": "^1.13.6",
     "core-js": "^3.8.3",
     "dompurify": "^3.2.6",
     "form-data": "^4.0.4",

@@ -83,7 +83,7 @@ app.directive('safe-html', (el, binding) => {
 if (process.env.NODE_ENV === 'development') {
   const meta = document.createElement('meta');
   meta.httpEquiv = 'Content-Security-Policy';
-  meta.content = "default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https: data:;";
+  meta.content = "default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' https: data:; connect-src 'self' https://api.github.com https://vercel.live;";
   document.head.appendChild(meta);
 }
 
