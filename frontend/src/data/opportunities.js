@@ -351,7 +351,7 @@ export default [
       date: "May, 9am-3pm",
       location: "Online",
       application: "Teacher Registration",
-      applicationLink: "https://ethicsolympiad.org/?page_id=4467",
+      applicationLink: "https://ethicsolympiad.turbifysites.com/2026-senior-school-olympiad-page.html",
       categories: [CATEGORIES[2]]
     },
     {
