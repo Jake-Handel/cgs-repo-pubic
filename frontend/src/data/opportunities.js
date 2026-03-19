@@ -155,7 +155,7 @@ export default [
       datenum: 2,
       location: "Varies (Host states change)",
       application: "Student Registration (Invitational)",
-      applicationLink: "http://www.actdebatingunion.com",
+      applicationLink: "https://www.debating.org.au/about-nsdc",
       categories: [CATEGORIES[2]]
     },
     {
