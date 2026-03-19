@@ -141,7 +141,7 @@ export default [
       datenum: 13,
       location: "Australia",
       application: "School Application",
-      applicationLink: "http://www.actdebatingunion.com/",
+      applicationLink: "https://www.facebook.com/ACTDU/",
       categories: [CATEGORIES[2]]
     },
     {
