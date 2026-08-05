@@ -5,7 +5,30 @@
         <div class="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between">
           <router-link to="/" class="text-xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent hover:from-teal-700 hover:to-blue-700 transition-all duration-500 whitespace-nowrap">Student Opportunities</router-link>
 
-          <div class="w-full flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-end">
+          <div class="flex items-center space-x-4">
+            <div class="flex space-x-2">
+              <router-link 
+                to="/" 
+                class="px-3 py-2 rounded-lg text-gray-700 hover:bg-white hover:shadow-md transition-all duration-200 text-sm"
+                :class="{ 'bg-white shadow-md': $route.path === '/' }"
+              >
+                Home
+              </router-link>
+              <router-link 
+                to="/opportunities" 
+                class="px-3 py-2 rounded-lg bg-white shadow-md text-gray-700 transition-all duration-200 text-sm"
+              >
+                Opportunities
+              </router-link>
+              <router-link 
+                to="/code-golf" 
+                class="px-3 py-2 rounded-lg text-gray-700 hover:bg-white hover:shadow-md transition-all duration-200 text-sm"
+                :class="{ 'bg-white shadow-md': $route.path === '/code-golf' }"
+              >
+                Code Golf
+              </router-link>
+            </div>
+            <div class="w-full flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
             <div class="relative category-dropdown-container">
               <button 
                 @click="showCategoryDropdown = !showCategoryDropdown"
@@ -126,6 +149,7 @@
           </div>
         </div>
       </div>
+    </div>
     </header>
 
     <div class="container mx-auto px-4 py-4">

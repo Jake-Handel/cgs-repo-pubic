@@ -2,13 +2,33 @@
   <div class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
       <div class="container mx-auto px-4 py-3">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between">
           <div class="animate-fade-in">
             <router-link 
               to="/" 
               class="text-xl font-bold bg-gradient-to-r from-teal-600 to-blue-600 bg-clip-text text-transparent hover:from-teal-700 hover:to-blue-700 transition-all duration-500"
             >
               Student Opportunities
+            </router-link>
+          </div>
+          <div class="flex space-x-4">
+            <router-link 
+              to="/" 
+              class="px-4 py-2 rounded-lg bg-white shadow-md text-gray-700 transition-all duration-200"
+            >
+              Home
+            </router-link>
+            <router-link 
+              to="/opportunities" 
+              class="px-4 py-2 rounded-lg text-gray-700 hover:bg-white hover:shadow-md transition-all duration-200"
+            >
+              Opportunities
+            </router-link>
+            <router-link 
+              to="/code-golf" 
+              class="px-4 py-2 rounded-lg text-gray-700 hover:bg-white hover:shadow-md transition-all duration-200"
+            >
+              Code Golf
             </router-link>
           </div>
         </div>
