@@ -11,26 +11,6 @@
               Student Opportunities
             </router-link>
           </div>
-          <div class="flex space-x-4">
-            <router-link 
-              to="/" 
-              class="px-4 py-2 rounded-lg bg-white shadow-md text-gray-700 transition-all duration-200"
-            >
-              Home
-            </router-link>
-            <router-link 
-              to="/opportunities" 
-              class="px-4 py-2 rounded-lg text-gray-700 hover:bg-white hover:shadow-md transition-all duration-200"
-            >
-              Opportunities
-            </router-link>
-            <router-link 
-              to="/code-golf" 
-              class="px-4 py-2 rounded-lg text-gray-700 hover:bg-white hover:shadow-md transition-all duration-200"
-            >
-              Code Golf
-            </router-link>
-          </div>
         </div>
       </div>
     </header>
@@ -341,7 +321,7 @@ export default defineComponent({
   },
   methods: {
     openMail() {
-      window.open('mailto:seniorschool@cgs.act.edu.au');
+      window.open('mailto:seniorschool@cgs.act.edu.au?subject=Opportunities For Students');
     }
   }
 })
