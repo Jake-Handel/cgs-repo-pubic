@@ -178,101 +178,130 @@ export default {
       challenges: [
         {
           id: 1,
-          title: 'Blink LED',
-          description: 'Make an LED blink on pin 13',
-          fullDescription: 'Write the shortest Arduino C code that will make the built-in LED (pin 13) blink once per second. The LED should turn on for 500ms, then off for 500ms, repeating indefinitely.',
+          title: 'Fizz Buzz',
+          description: 'Print Fizz Buzz numbers 1-100',
+          fullDescription: 'Print numbers 1 to 100 to serial, but print "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both.',
           difficulty: 'Easy',
           points: 10,
-          bestScore: 67,
-          solvedBy: 234,
-          example: 'LED on (500ms) -> LED off (500ms) -> repeat...',
+          bestScore: 95,
+          solvedBy: 456,
+          example: '1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz...',
           constraints: [
-            'Must use pinMode() and digitalWrite()',
-            'Must use delay() for timing',
-            'Code must run in loop() function'
+            'Must use Serial.begin()',
+            'Must print each number/word on separate line',
+            'Range: 1 to 100'
           ]
         },
         {
           id: 2,
-          title: 'Button Counter',
-          description: 'Count button presses on pin 2',
-          fullDescription: 'Write the shortest Arduino C code that counts how many times a button connected to pin 2 is pressed. Send the count to serial monitor each time it changes. Use internal pull-up resistor.',
-          difficulty: 'Medium',
-          points: 25,
-          bestScore: 142,
-          solvedBy: 156,
-          example: 'Button press -> Serial.print(count) -> count++',
+          title: 'Fibonacci',
+          description: 'Print first 20 Fibonacci numbers',
+          fullDescription: 'Print the first 20 numbers of the Fibonacci sequence (starting with 0, 1) to serial. Each number on a new line.',
+          difficulty: 'Easy',
+          points: 15,
+          bestScore: 78,
+          solvedBy: 389,
+          example: '0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181',
           constraints: [
-            'Must use INPUT_PULLUP',
-            'Must detect button press (not hold)',
             'Must use Serial.begin()',
-            'Debouncing not required for this challenge'
+            'Start with 0, 1',
+            'Print exactly 20 numbers'
           ]
         },
         {
           id: 3,
-          title: 'PWM Fade',
-          description: 'Fade an LED using PWM on pin 9',
-          fullDescription: 'Write the shortest Arduino C code that fades an LED connected to pin 9 from off to fully on and back to off continuously. Use analogWrite() for PWM control.',
+          title: 'Prime Numbers',
+          description: 'Print first 15 prime numbers',
+          fullDescription: 'Print the first 15 prime numbers to serial. Each number on a new line.',
           difficulty: 'Medium',
           points: 20,
-          bestScore: 98,
-          solvedBy: 189,
-          example: '0 → 255 → 0 (fade) → repeat',
+          bestScore: 112,
+          solvedBy: 267,
+          example: '2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47',
           constraints: [
-            'Must use analogWrite()',
-            'Must create smooth fade effect',
-            'Use delay() for timing'
+            'Must use Serial.begin()',
+            'Print exactly 15 prime numbers',
+            'Start from 2'
           ]
         },
         {
           id: 4,
-          title: 'Serial Echo',
-          description: 'Echo back serial input',
-          fullDescription: 'Write the shortest Arduino C code that reads characters from serial and echoes them back. If "HELLO" is sent, "HELLO" should be received back.',
+          title: 'Reverse String',
+          description: 'Reverse a hardcoded string',
+          fullDescription: 'Reverse the string "Hello World" and print it to serial. Output should be "dlroW olleH".',
           difficulty: 'Easy',
-          points: 15,
-          bestScore: 54,
-          solvedBy: 312,
-          example: 'Input: "HELLO" -> Output: "HELLO"',
+          points: 10,
+          bestScore: 62,
+          solvedBy: 521,
+          example: 'Input: "Hello World" -> Output: "dlroW olleH"',
           constraints: [
-            'Must use Serial.available()',
-            'Must use Serial.read()',
-            'Must use Serial.write() or Serial.print()'
+            'Must use Serial.begin()',
+            'Hardcode the string "Hello World"',
+            'Print reversed string'
           ]
         },
         {
           id: 5,
-          title: 'Temperature Alert',
-          description: 'Alert if analog reading > threshold',
-          fullDescription: 'Write the shortest Arduino C code that reads analog pin A0 and turns on the built-in LED if the reading is above 512 (half of 1023). The LED should turn off when below threshold.',
+          title: 'ASCII Table',
+          description: 'Print ASCII characters 32-126',
+          fullDescription: 'Print printable ASCII characters (32 to 126) to serial. Show each character with its decimal value.',
           difficulty: 'Medium',
-          points: 30,
-          bestScore: 87,
-          solvedBy: 145,
-          example: 'A0 > 512 -> LED ON, else LED OFF',
+          points: 25,
+          bestScore: 88,
+          solvedBy: 198,
+          example: '32: space, 33: !, 34: ", 35: #, ... 126: ~',
           constraints: [
-            'Must use analogRead()',
-            'Must use digitalWrite() for LED',
-            'Continuous monitoring in loop()'
+            'Must use Serial.begin()',
+            'Range: 32 to 126',
+            'Format: "decimal: character"'
           ]
         },
         {
           id: 6,
-          title: 'Morse Code SOS',
-          description: 'Blink SOS in Morse code',
-          fullDescription: 'Write the shortest Arduino C code that blinks "SOS" in Morse code on the built-in LED. S = 3 short dots, O = 3 long dashes. Dot = 200ms, Dash = 600ms, gap between letters = 200ms.',
-          difficulty: 'Hard',
-          points: 50,
-          bestScore: 178,
-          solvedBy: 67,
-          example: '... --- ... (repeat)',
+          title: 'Factorial',
+          description: 'Print factorials 1-10',
+          fullDescription: 'Print factorials of numbers 1 to 10 to serial. Each on a new line (e.g., "1! = 1").',
+          difficulty: 'Medium',
+          points: 20,
+          bestScore: 85,
+          solvedBy: 234,
+          example: '1! = 1, 2! = 2, 3! = 6, 4! = 24, 5! = 120, 6! = 720, 7! = 5040, 8! = 40320, 9! = 362880, 10! = 3628800',
           constraints: [
-            'Must follow Morse timing correctly',
-            'Must repeat SOS continuously',
-            'Dot = 200ms on, 200ms off',
-            'Dash = 600ms on, 200ms off',
-            'Letter gap = 600ms off'
+            'Must use Serial.begin()',
+            'Range: 1 to 10',
+            'Format: "n! = result"'
+          ]
+        },
+        {
+          id: 7,
+          title: 'Palindrome Check',
+          description: 'Check if string is palindrome',
+          fullDescription: 'Check if the string "racecar" is a palindrome and print "true" or "false" to serial.',
+          difficulty: 'Easy',
+          points: 15,
+          bestScore: 72,
+          solvedBy: 312,
+          example: 'Input: "racecar" -> Output: "true"',
+          constraints: [
+            'Must use Serial.begin()',
+            'Hardcode the string "racecar"',
+            'Print "true" or "false"'
+          ]
+        },
+        {
+          id: 8,
+          title: 'Sum Array',
+          description: 'Sum numbers in array',
+          fullDescription: 'Create an array with numbers 1-10 and print their sum to serial.',
+          difficulty: 'Easy',
+          points: 10,
+          bestScore: 58,
+          solvedBy: 445,
+          example: 'Array: [1,2,3,4,5,6,7,8,9,10] -> Sum: 55',
+          constraints: [
+            'Must use Serial.begin()',
+            'Array must contain 1-10',
+            'Print the sum'
           ]
         }
       ]
