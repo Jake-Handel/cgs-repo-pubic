@@ -303,6 +303,118 @@ export default {
             'Array must contain 1-10',
             'Print the sum'
           ]
+        },
+        {
+          id: 9,
+          title: 'Min Function',
+          description: 'Find minimum of two numbers',
+          fullDescription: 'Create a function that finds the minimum of two numbers (7 and 3) and prints the result (3) to serial.',
+          difficulty: 'Easy',
+          points: 8,
+          bestScore: 38,
+          solvedBy: 567,
+          example: 'min(7, 3) -> prints 3',
+          constraints: [
+            'Must use Serial.begin()',
+            'Must create a function',
+            'Call with numbers 7 and 3'
+          ]
+        },
+        {
+          id: 10,
+          title: 'Max Function',
+          description: 'Find maximum of two numbers',
+          fullDescription: 'Create a function that finds the maximum of two numbers (4 and 9) and prints the result (9) to serial.',
+          difficulty: 'Easy',
+          points: 8,
+          bestScore: 38,
+          solvedBy: 543,
+          example: 'max(4, 9) -> prints 9',
+          constraints: [
+            'Must use Serial.begin()',
+            'Must create a function',
+            'Call with numbers 4 and 9'
+          ]
+        },
+        {
+          id: 11,
+          title: 'Absolute Value',
+          description: 'Calculate absolute value',
+          fullDescription: 'Create a function that returns the absolute value of -5 and prints the result (5) to serial.',
+          difficulty: 'Easy',
+          points: 10,
+          bestScore: 42,
+          solvedBy: 498,
+          example: 'abs(-5) -> prints 5',
+          constraints: [
+            'Must use Serial.begin()',
+            'Must create a function',
+            'Test with -5'
+          ]
+        },
+        {
+          id: 12,
+          title: 'Power Function',
+          description: 'Calculate power of number',
+          fullDescription: 'Create a function that calculates 2 to the power of 3 and prints the result (8) to serial.',
+          difficulty: 'Easy',
+          points: 12,
+          bestScore: 48,
+          solvedBy: 421,
+          example: 'power(2, 3) -> prints 8',
+          constraints: [
+            'Must use Serial.begin()',
+            'Must create a function',
+            'Calculate 2^3'
+          ]
+        },
+        {
+          id: 13,
+          title: 'Square Root',
+          description: 'Calculate square root',
+          fullDescription: 'Create a function that calculates the square root of 16 and prints the result (4) to serial.',
+          difficulty: 'Easy',
+          points: 12,
+          bestScore: 45,
+          solvedBy: 387,
+          example: 'sqrt(16) -> prints 4',
+          constraints: [
+            'Must use Serial.begin()',
+            'Must create a function',
+            'Test with 16'
+          ]
+        },
+        {
+          id: 14,
+          title: 'String Length',
+          description: 'Calculate string length',
+          fullDescription: 'Create a function that calculates the length of "Hello" and prints the result (5) to serial.',
+          difficulty: 'Easy',
+          points: 8,
+          bestScore: 35,
+          solvedBy: 612,
+          example: 'strlen("Hello") -> prints 5',
+          constraints: [
+            'Must use Serial.begin()',
+            'Must create a function',
+            'Test with "Hello"'
+          ]
+        },
+        {
+          id: 15,
+          title: 'Multiply Function',
+          description: 'Create multiply function',
+          fullDescription: 'Create a function that multiplies two numbers (6 and 7) and prints the result (42) to serial.',
+          difficulty: 'Easy',
+          points: 8,
+          bestScore: 40,
+          solvedBy: 589,
+          example: 'multiply(6, 7) -> prints 42',
+          constraints: [
+            'Must use Serial.begin()',
+            'Must create a function',
+            'Call with 6 and 7'
+          ]
         }
       ]
     }
