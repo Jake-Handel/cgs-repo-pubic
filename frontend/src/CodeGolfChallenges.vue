@@ -171,40 +171,7 @@
             </div>
           </div>
 
-          <div class="mb-6">
-            <h3 class="font-semibold text-gray-900 mb-2">Your Solution (Arduino C):</h3>
-            <textarea
-              v-model="userCode"
-              class="w-full h-64 p-4 font-mono text-sm border rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-gray-50"
-              placeholder="// Write your Arduino C code here..."
-              spellcheck="false"
-            ></textarea>
-          </div>
 
-          <div class="flex gap-4">
-            <button 
-              @click="submitSolution"
-              class="px-6 py-3 bg-gradient-to-r from-teal-600 to-blue-600 text-white rounded-xl hover:from-teal-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              Submit Solution
-            </button>
-            <button 
-              @click="resetCode"
-              class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-all duration-300"
-            >
-              Reset
-            </button>
-          </div>
-
-          <!-- Result Section -->
-          <div v-if="submissionResult" class="mt-6 p-4 rounded-lg" :class="submissionResult.success ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'">
-            <h4 class="font-semibold mb-2" :class="submissionResult.success ? 'text-green-800' : 'text-red-800'">
-              {{ submissionResult.success ? '✅ Success!' : '❌ Try Again' }}
-            </h4>
-            <p class="text-sm" :class="submissionResult.success ? 'text-green-700' : 'text-red-700'">
-              {{ submissionResult.message }}
-            </p>
-          </div>
         </div>
       </section>
     </main>
@@ -218,8 +185,6 @@ export default {
     return {
       selectedChallenge: null,
       selectedCategory: 'All Challenges',
-      userCode: '',
-      submissionResult: null,
       categories: ['All Challenges', 'Classic Algorithms', 'String Operations', 'Mathematical Functions', 'Array Operations'],
       challenges: [
         {
@@ -483,8 +448,6 @@ export default {
   methods: {
     selectChallenge(challenge) {
       this.selectedChallenge = challenge;
-      this.userCode = '';
-      this.submissionResult = null;
     },
     getChallengesByCategory(category) {
       if (category === 'All Challenges') {
@@ -503,52 +466,6 @@ export default {
         default:
           return 'bg-gray-100 text-gray-700';
       }
-    },
-    submitSolution() {
-      // Simulate submission validation
-      // In a real app, this would send to a backend for validation
-      const charCount = this.userCode.length;
-      const isValid = this.userCode.trim().length > 0;
-      
-      if (!isValid) {
-        this.submissionResult = {
-          success: false,
-          message: 'Please enter some code before submitting.'
-        };
-        return;
-      }
-
-      // Simulate validation (in real app, this would compile and test the code)
-      const containsRequired = this.checkRequiredFunctions(this.userCode);
-      
-      if (containsRequired) {
-        this.submissionResult = {
-          success: true,
-          message: `Solution submitted! Character count: ${charCount}. ${charCount < this.selectedChallenge.bestScore ? 'New record! 🎉' : ''}`
-        };
-        
-        // Update best score if better
-        if (charCount < this.selectedChallenge.bestScore) {
-          this.selectedChallenge.bestScore = charCount;
-          this.selectedChallenge.solvedBy++;
-        } else {
-          this.selectedChallenge.solvedBy++;
-        }
-      } else {
-        this.submissionResult = {
-          success: false,
-          message: 'Code appears to be missing required Arduino functions. Please check your solution.'
-        };
-      }
-    },
-    checkRequiredFunctions(code) {
-      // Basic validation - check for common Arduino functions
-      const arduinoFunctions = ['setup', 'loop', 'pinMode', 'digitalWrite', 'delay', 'analogRead', 'analogWrite', 'Serial'];
-      return arduinoFunctions.some(func => code.toLowerCase().includes(func.toLowerCase()));
-    },
-    resetCode() {
-      this.userCode = '';
-      this.submissionResult = null;
     }
   }
 }
