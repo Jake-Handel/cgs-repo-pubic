@@ -52,33 +52,87 @@
         </div>
       </section>
 
+      <!-- Category Filter -->
+      <section class="py-4">
+        <div class="flex flex-wrap gap-2 justify-center">
+          <button 
+            v-for="category in categories" 
+            :key="category"
+            @click="selectedCategory = category"
+            class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+            :class="selectedCategory === category ? 'bg-gradient-to-r from-teal-600 to-blue-600 text-white shadow-md' : 'bg-white text-gray-700 hover:bg-gray-100'"
+          >
+            {{ category }}
+          </button>
+        </div>
+      </section>
+
       <!-- Challenges Grid -->
       <section class="py-8">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div 
-            v-for="challenge in challenges" 
-            :key="challenge.id"
-            class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
-            @click="selectChallenge(challenge)"
-            :class="{ 'ring-2 ring-teal-500': selectedChallenge && selectedChallenge.id === challenge.id }"
-          >
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-4">
-                <span 
-                  class="px-3 py-1 rounded-full text-sm font-medium"
-                  :class="getDifficultyClass(challenge.difficulty)"
+        <div v-if="selectedCategory === 'All Challenges'" class="mb-8">
+          <div v-for="category in categories.slice(1)" :key="category" class="mb-8">
+            <div v-if="getChallengesByCategory(category).length > 0">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                <span class="w-2 h-8 bg-gradient-to-b from-teal-400 to-blue-500 rounded-full mr-3"></span>
+                {{ category }}
+              </h2>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div 
+                  v-for="challenge in getChallengesByCategory(category)" 
+                  :key="challenge.id"
+                  class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
+                  @click="selectChallenge(challenge)"
+                  :class="{ 'ring-2 ring-teal-500': selectedChallenge && selectedChallenge.id === challenge.id }"
                 >
-                  {{ challenge.difficulty }}
-                </span>
-                <span class="text-sm text-gray-500">{{ challenge.points }} pts</span>
+                  <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                      <span 
+                        class="px-3 py-1 rounded-full text-sm font-medium"
+                        :class="getDifficultyClass(challenge.difficulty)"
+                      >
+                        {{ challenge.difficulty }}
+                      </span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ challenge.title }}</h3>
+                    <p class="text-gray-600 mb-4">{{ challenge.description }}</p>
+                    
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    </div>
+                  </div>
+                </div>
               </div>
-              
-              <h3 class="text-xl font-bold text-gray-900 mb-2">{{ challenge.title }}</h3>
-              <p class="text-gray-600 mb-4">{{ challenge.description }}</p>
-              
-              <div class="flex items-center justify-between text-sm text-gray-500">
-                <span>🏆 Best: {{ challenge.bestScore }} chars</span>
-                <span v-if="challenge.solvedBy" class="text-teal-600">{{ challenge.solvedBy }} solved</span>
+            </div>
+          </div>
+        </div>
+        <div v-else class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="w-2 h-8 bg-gradient-to-b from-teal-400 to-blue-500 rounded-full mr-3"></span>
+            {{ selectedCategory }}
+          </h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div 
+              v-for="challenge in getChallengesByCategory(selectedCategory)" 
+              :key="challenge.id"
+              class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
+              @click="selectChallenge(challenge)"
+              :class="{ 'ring-2 ring-teal-500': selectedChallenge && selectedChallenge.id === challenge.id }"
+            >
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <span 
+                    class="px-3 py-1 rounded-full text-sm font-medium"
+                    :class="getDifficultyClass(challenge.difficulty)"
+                  >
+                    {{ challenge.difficulty }}
+                  </span>
+                </div>
+                
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{{ challenge.title }}</h3>
+                <p class="text-gray-600 mb-4">{{ challenge.description }}</p>
+                
+                <div class="flex items-center justify-between text-sm text-gray-500">
+                </div>
               </div>
             </div>
           </div>
@@ -125,16 +179,6 @@
               placeholder="// Write your Arduino C code here..."
               spellcheck="false"
             ></textarea>
-            <div class="flex items-center justify-between mt-2">
-              <span class="text-sm text-gray-500">Character count: {{ userCode.length }}</span>
-              <span 
-                v-if="userCode.length > 0"
-                class="text-sm"
-                :class="userCode.length < selectedChallenge.bestScore ? 'text-green-600' : 'text-gray-500'"
-              >
-                {{ userCode.length < selectedChallenge.bestScore ? '🎉 New record!' : `Target: ${selectedChallenge.bestScore}` }}
-              </span>
-            </div>
           </div>
 
           <div class="flex gap-4">
@@ -173,8 +217,10 @@ export default {
   data() {
     return {
       selectedChallenge: null,
+      selectedCategory: 'All Challenges',
       userCode: '',
       submissionResult: null,
+      categories: ['All Challenges', 'Classic Algorithms', 'String Operations', 'Mathematical Functions', 'Array Operations'],
       challenges: [
         {
           id: 1,
@@ -185,6 +231,7 @@ export default {
           points: 10,
           bestScore: 95,
           solvedBy: 456,
+          category: 'Classic Algorithms',
           example: '1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz...',
           constraints: [
             'Must use Serial.begin()',
@@ -201,6 +248,7 @@ export default {
           points: 15,
           bestScore: 78,
           solvedBy: 389,
+          category: 'Classic Algorithms',
           example: '0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181',
           constraints: [
             'Must use Serial.begin()',
@@ -217,6 +265,7 @@ export default {
           points: 20,
           bestScore: 112,
           solvedBy: 267,
+          category: 'Classic Algorithms',
           example: '2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47',
           constraints: [
             'Must use Serial.begin()',
@@ -233,6 +282,7 @@ export default {
           points: 10,
           bestScore: 62,
           solvedBy: 521,
+          category: 'String Operations',
           example: 'Input: "Hello World" -> Output: "dlroW olleH"',
           constraints: [
             'Must use Serial.begin()',
@@ -249,6 +299,7 @@ export default {
           points: 25,
           bestScore: 88,
           solvedBy: 198,
+          category: 'String Operations',
           example: '32: space, 33: !, 34: ", 35: #, ... 126: ~',
           constraints: [
             'Must use Serial.begin()',
@@ -265,6 +316,7 @@ export default {
           points: 20,
           bestScore: 85,
           solvedBy: 234,
+          category: 'Mathematical Functions',
           example: '1! = 1, 2! = 2, 3! = 6, 4! = 24, 5! = 120, 6! = 720, 7! = 5040, 8! = 40320, 9! = 362880, 10! = 3628800',
           constraints: [
             'Must use Serial.begin()',
@@ -281,6 +333,7 @@ export default {
           points: 15,
           bestScore: 72,
           solvedBy: 312,
+          category: 'String Operations',
           example: 'Input: "racecar" -> Output: "true"',
           constraints: [
             'Must use Serial.begin()',
@@ -297,6 +350,7 @@ export default {
           points: 10,
           bestScore: 58,
           solvedBy: 445,
+          category: 'Array Operations',
           example: 'Array: [1,2,3,4,5,6,7,8,9,10] -> Sum: 55',
           constraints: [
             'Must use Serial.begin()',
@@ -313,6 +367,7 @@ export default {
           points: 8,
           bestScore: 38,
           solvedBy: 567,
+          category: 'Mathematical Functions',
           example: 'min(7, 3) -> prints 3',
           constraints: [
             'Must use Serial.begin()',
@@ -329,6 +384,7 @@ export default {
           points: 8,
           bestScore: 38,
           solvedBy: 543,
+          category: 'Mathematical Functions',
           example: 'max(4, 9) -> prints 9',
           constraints: [
             'Must use Serial.begin()',
@@ -345,6 +401,7 @@ export default {
           points: 10,
           bestScore: 42,
           solvedBy: 498,
+          category: 'Mathematical Functions',
           example: 'abs(-5) -> prints 5',
           constraints: [
             'Must use Serial.begin()',
@@ -361,6 +418,7 @@ export default {
           points: 12,
           bestScore: 48,
           solvedBy: 421,
+          category: 'Mathematical Functions',
           example: 'power(2, 3) -> prints 8',
           constraints: [
             'Must use Serial.begin()',
@@ -377,6 +435,7 @@ export default {
           points: 12,
           bestScore: 45,
           solvedBy: 387,
+          category: 'Mathematical Functions',
           example: 'sqrt(16) -> prints 4',
           constraints: [
             'Must use Serial.begin()',
@@ -393,6 +452,7 @@ export default {
           points: 8,
           bestScore: 35,
           solvedBy: 612,
+          category: 'String Operations',
           example: 'strlen("Hello") -> prints 5',
           constraints: [
             'Must use Serial.begin()',
@@ -409,6 +469,7 @@ export default {
           points: 8,
           bestScore: 40,
           solvedBy: 589,
+          category: 'Mathematical Functions',
           example: 'multiply(6, 7) -> prints 42',
           constraints: [
             'Must use Serial.begin()',
@@ -424,6 +485,12 @@ export default {
       this.selectedChallenge = challenge;
       this.userCode = '';
       this.submissionResult = null;
+    },
+    getChallengesByCategory(category) {
+      if (category === 'All Challenges') {
+        return this.challenges;
+      }
+      return this.challenges.filter(challenge => challenge.category === category);
     },
     getDifficultyClass(difficulty) {
       switch(difficulty) {
